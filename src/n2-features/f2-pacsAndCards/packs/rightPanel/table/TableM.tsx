@@ -26,7 +26,6 @@ import {ButtonForTablePacks} from '../../../../../n1-main/m1-ui/common/Component
 import {Pagination} from '@material-ui/lab';
 import {PackType} from '../../../../../n1-main/m2-bll/api/api';
 
-
 interface Column {
     id: 'name' | 'cardsCount' | 'updated' | 'created' | 'actions';
     label: string;
@@ -162,13 +161,13 @@ export function TableM() {
                                                         name_1={'Del'} name_2={'Edit'} name_3={'Learn'}
                                                         titleOfPage={'Pack'}
                                                         nameOfCell={row.name} id={row._id}
-
                                                         color={false} nameOfPack={row.name}
                                                     />
                                                     : column.id === 'name'
                                                         ? < ButtonForTableCell text={row.name} idPack={row._id}/>
                                                         : column.format && typeof value === 'string' ? column.format(value) : value
                                                 }
+
                                             </TableCell>
                                         );
                                     })}

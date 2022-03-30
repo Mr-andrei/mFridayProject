@@ -115,7 +115,6 @@ export const TableCards = () => {
             <Search
                 isButton={false}
                 titleSearch={packName}
-                isArrowBack={true}
                 onChange={setSearchHandler}
                 value={cardsQuestion}
                 location={'card'}

@@ -6,7 +6,6 @@ import {useDispatch} from 'react-redux';
 import {getCardsForLearn, setIsGet} from '../../../m2-bll/reducers/cardReducer';
 import ModalMi from '../../modal/ModalMI';
 
-
 type PropsType = {
     userId: boolean;
     name_1?: string;
@@ -24,7 +23,7 @@ type PropsType = {
 //
 const fontSize = {fontSize: '0.6rem'}
 export default function BasicButtonGroup(
-    {userId, name_1, name_2, name_3, color, titleOfPage, nameOfCell, id,questionText,answerText,}: PropsType) {
+    {userId, name_1, name_2, name_3, color, titleOfPage, nameOfCell, id, questionText, answerText,}: PropsType) {
     const [open, setOpen] = React.useState(false);
     const [title, setTitle] = React.useState('');
     const [typeModel, setTypeModel] = useState('');

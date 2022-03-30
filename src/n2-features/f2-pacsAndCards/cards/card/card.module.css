@@ -1,8 +1,54 @@
-@media screen and (max-height: 700px ) {
-.box{
+/*@media screen and (max-height: 700px ) {*/
+/*.box{*/
+/*    min-height: 85vh;*/
+/*}*/
+/*    .grid1{*/
+/*        margin-bottom: 0;*/
+/*    }*/
+/*}*/
+
+
+.card_container_flex {
     min-height: 85vh;
+
+    position: relative;
 }
-    .grid1{
-        margin-bottom: 0;
-    }
+
+.card_container {
+    width: 400px;
+    padding: 30px 20px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: whitesmoke;
 }
+
+.btn_show_answer{
+    color: #fff;
+    background-color: #3f51b5;
+
+}
+.inputForm {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-bottom: 2px;
+}
+
+.inputForm:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+

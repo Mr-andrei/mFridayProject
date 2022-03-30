@@ -1,4 +1,5 @@
 import * as React from 'react';
+import s from './modal.module.css'
 import {ChangeEvent, useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -11,7 +12,7 @@ import {useTypedSelector} from '../../m2-bll/redux';
 import {NavLink} from 'react-router-dom';
 import {colorBlueMI} from '../utilities/for css';
 import {addNewPackTC, changeNamePackTC, deletePackT} from '../../m2-bll/reducers/packsReducer';
-import {addNewCardTC, deleteCardTC, setCurrentCard, setIsGet, updateCardTC} from '../../m2-bll/reducers/cardReducer';
+import {addNewCardTC, deleteCardTC, setCurrentCard, updateCardTC} from '../../m2-bll/reducers/cardReducer';
 import {getCard} from '../utilities/getCard';
 import LinearIndeterminate from '../common/Preloader/unused/LinearMI';
 
@@ -43,10 +44,7 @@ export default function ModalMi({
                                     title, open, setOpen, titleOfPage, type, id, nameOfCell, questionText, answerText,
                                 }: PropsType) {
     const dispatch = useDispatch();
-    const questionForLearn = useTypedSelector(state => state.cards.currentCard.question);
-    const cardsTotalCount = useTypedSelector(state => state.cards.data.cardsTotalCount);
     const status = useTypedSelector(state => state.app.status);
-    // const handleClose = () => setOpen(false);
 
     const cards = useTypedSelector(state => state.cards.cardsForLearn);
     const isGet = useTypedSelector(state => state.cards.isGet);
@@ -111,7 +109,7 @@ export default function ModalMi({
     const onChangeHandlerQuestion = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setQuestion(e.currentTarget.value)
     }
-    const onClickShowAnswer = () => dispatch(setIsGet(false));
+
     return (
         <div>
             <Modal
@@ -123,7 +121,7 @@ export default function ModalMi({
                     {status === 'loading' && <LinearIndeterminate/>}
                     <Typography id="modal-modal-title" variant="h6" component="h2" style={{marginBottom: '20px'}}>
                         {title === 'Learn'
-                            ? <><span>{title}:</span> <span style={{color: colorBlueMI}}>{nameOfCell}</span></>
+                            ? <><span>Start learn:</span> <span style={{color: colorBlueMI}}>{nameOfCell} ?</span></>
                             : title}
                     </Typography>
                     {type === 'delete' &&
@@ -132,11 +130,6 @@ export default function ModalMi({
                             be excluded from this course.</>}
                         {titleOfPage === 'Card' && <>Do you really want to remove {nameOfCell}?</>}
                     </Typography>}
-                    {type === 'learn' &&
-                    <Typography id="modal-modal-description" sx={{mt: 2}}>
-                        Question: {status === 'loading' ? '' : questionForLearn}
-                    </Typography>
-                    }
                     {((type === 'input' && title === 'Edit name') || (type === 'input' && title === 'Add Pack')) &&
                     <Input size={'small'}
                            value={nameNewPack}
@@ -172,26 +165,10 @@ export default function ModalMi({
 
                             <Button size={'small'} variant={'contained'} color={'primary'}
                                     onClick={addOnClickHandler}>{'save'}</Button>}
+
                             {type === 'learn' &&
-                            nameOfCell === 'hardCord' ?
-                                <Button size={'small'} variant={'contained'}
-                                        color={'primary'} disabled={!cardsTotalCount || status === 'loading'}
-                                        onClick={() => setOpen(false)}
-                                >
-                                    Show answer
-                                </Button>
-                                : type === 'learn' && <Button size={'small'} variant={'contained'}
-                                                              color={'primary'}
-                                                              disabled={!cardsTotalCount || status === 'loading'}
-                            >
-                                <NavLink to={`/card/${id}/${nameOfCell}/${idCurrenCard}`}
-                                         style={{
-                                             textDecoration: 'none',
-                                             color: cardsTotalCount ? 'white' : 'black'
-                                         }}
-                                         onClick={onClickShowAnswer}
-                                > Show answer </NavLink>
-                            </Button>
+                            <NavLink className={s.link_toLearn} to={`/card/${id}/${nameOfCell}/${idCurrenCard}`}
+                            > Start learn </NavLink>
 
                             }
                         </Grid>

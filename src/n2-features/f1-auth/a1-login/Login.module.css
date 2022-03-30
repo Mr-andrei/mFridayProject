@@ -1,0 +1,24 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+
+}
+
+.wrapper .container_form {
+    width: 50%;
+    height: 50%;
+    border: 2px lightgrey solid;
+}
+
+.wrapper form {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+

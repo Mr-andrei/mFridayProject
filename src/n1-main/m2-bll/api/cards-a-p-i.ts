@@ -9,7 +9,7 @@ const instance = axios.create({
 
 export const cardsAPI = {
     getCards(data: RequestForCardsType) {
-        return instance.get<RequestForCardsType,AxiosResponse<CardsDataType>>
+        return instance.get<RequestForCardsType, AxiosResponse<CardsDataType>>
         (`/cards/card/`, {
                 params: data,
             }
@@ -25,19 +25,19 @@ export const cardsAPI = {
         return instance.put<RequestToUpdateCardType>(`/cards/card`, data);
     },
     updateGrade(data: RequestToUpdateGradeType) {
-        return instance.put<RequestToUpdateGradeType,AxiosResponse<ResponseUpdateGrade>>
+        return instance.put<RequestToUpdateGradeType, AxiosResponse<ResponseUpdateGrade>>
         ('cards/grade', data);
     }
 };
 //types
-export type ResponseUpdateGrade={
-    updatedGrade:{
-        _id:string;
-        cardsPack_id:string;
-        card_id:string;
-        user_id:string;
-        grade:number;
-        shots:number;
+export type ResponseUpdateGrade = {
+    updatedGrade: {
+        _id: string;
+        cardsPack_id: string;
+        card_id: string;
+        user_id: string;
+        grade: number;
+        shots: number;
     }
 }
 export type RequestToUpdateGradeType = {
@@ -54,8 +54,8 @@ export type RequestToUpdateCardType = {
 export type RequestToAddCardType = {
     card: {
         cardsPack_id: string;
-        question: string|undefined;
-        answer: string|undefined;
+        question: string | undefined;
+        answer: string | undefined;
         grade?: number;
         shots?: number;
         answerImg?: string;
@@ -75,16 +75,7 @@ export type RequestForCardsType = {
     pageCount?: number;
 }
 
-/*export type DataGetType = {
-    cardAnswer: string
-    cardQuestion: string
-    cardsPack_id: string
-    min: number
-    max: number
-    sortCards: string
-    page: number
-    pageCount: number
-}*/
+
 
 export type UpdatedType =
     '0updated'
@@ -126,5 +117,5 @@ export type CardType = {
     __v: number
     _id: string;
     //custom property for rendering table of cards
-    actions?:string;
+    actions?: string;
 }

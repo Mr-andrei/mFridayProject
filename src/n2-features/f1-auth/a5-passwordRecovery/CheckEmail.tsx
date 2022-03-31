@@ -22,10 +22,6 @@ export const CheckEmail = () => {
                 width: 350,
                 height: '80%',
                 backgroundColor: 'whitesmoke',
-                '&:hover': {
-                    backgroundColor: 'white',
-                    opacity: [0.9, 0.8, 0.7],
-                },
             }}
         >
             <Grid container justifyContent={'center'}>

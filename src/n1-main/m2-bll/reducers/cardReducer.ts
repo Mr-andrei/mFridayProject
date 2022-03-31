@@ -85,7 +85,6 @@ export const cardsReducer = (state = initialState, action: CardReducerActionsTyp
             return {...state, getData: {...state.getData, page: action.page}};
         case 'CARDS_REDUCER/SET_SORT_VALUE':
             return {...state, getData: {...state.getData, sortCards: action.sortValue}};
-
         case 'CARDS_REDUCER/SET_CARDS_FOR_LEARN':
             return {
                 ...state,
@@ -94,29 +93,27 @@ export const cardsReducer = (state = initialState, action: CardReducerActionsTyp
             };
         case 'CARDS_REDUCER/SET_CARDS_QUESTION':
             return {...state, getData: {...state.getData, cardQuestion: action.value}};
-        case 'CARDS_REDUCER/SET_CURRENT_CARD':
-            return {...state, currentCard: action.card};
-        case 'CARDS_REDUCER/SET_IS_GET':
-            return {...state, isGet: action.isGet};
         default:
             return state;
     }
 }
-export const setIsGet = (isGet: boolean) => ({type: 'CARDS_REDUCER/SET_IS_GET', isGet} as const);
-export const setCurrentCard = (card: CardType) =>
-    ({type: 'CARDS_REDUCER/SET_CURRENT_CARD', card} as const);
+
+
 export const setCardsForLearn = (data: CardType[], countCards: number, namePack: string) =>
     ({type: 'CARDS_REDUCER/SET_CARDS_FOR_LEARN', data, countCards, namePack} as const);
+
 export const setCardsAC = (data: CardsDataType, packName: string) => ({
     type: 'CARDS_REDUCER/SET_CARDS',
     data,
     packName
 } as const);
+
 export const setIdCardsAC = (idCards: string, name: string) => ({
     type: 'CARDS_REDUCER/SET_ID_PACKS',
     idCards,
     name
 } as const);
+
 export const setCardsCurrentPage = (page: number) => ({type: 'CARDS_REDUCER/SET_CURRENT_PAGE', page} as const);
 export const setCardsSortValue = (sortValue: string) => ({type: 'CARDS_REDUCER/SET_SORT_VALUE', sortValue} as const);
 export const setCardsQuestion = (value: string) => ({type: 'CARDS_REDUCER/SET_CARDS_QUESTION', value} as const);
@@ -219,6 +216,4 @@ export type CardReducerActionsType =
     | ReturnType<typeof setCardsSortValue>
     | ReturnType<typeof setCardsForLearn>
     | ReturnType<typeof setCardsQuestion>
-    | ReturnType<typeof setCurrentCard>
-    | ReturnType<typeof setIsGet>
 type InitialStateType = typeof initialState;

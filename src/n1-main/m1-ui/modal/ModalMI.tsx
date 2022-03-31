@@ -1,6 +1,6 @@
 import * as React from 'react';
+import {ChangeEvent, useState} from 'react';
 import s from './modal.module.css'
-import {ChangeEvent, useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -12,8 +12,7 @@ import {useTypedSelector} from '../../m2-bll/redux';
 import {NavLink} from 'react-router-dom';
 import {colorBlueMI} from '../utilities/for css';
 import {addNewPackTC, changeNamePackTC, deletePackT} from '../../m2-bll/reducers/packsReducer';
-import {addNewCardTC, deleteCardTC, setCurrentCard, updateCardTC} from '../../m2-bll/reducers/cardReducer';
-import {getCard} from '../utilities/getCard';
+import {addNewCardTC, deleteCardTC, updateCardTC} from '../../m2-bll/reducers/cardReducer';
 import LinearIndeterminate from '../common/Preloader/unused/LinearMI';
 
 const style = {
@@ -23,8 +22,6 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 500,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
     p: 4,
 };
 type PropsType = {
@@ -39,24 +36,11 @@ type PropsType = {
     answerText?: string;
 }
 
-
 export default function ModalMi({
                                     title, open, setOpen, titleOfPage, type, id, nameOfCell, questionText, answerText,
                                 }: PropsType) {
     const dispatch = useDispatch();
     const status = useTypedSelector(state => state.app.status);
-
-    const cards = useTypedSelector(state => state.cards.cardsForLearn);
-    const isGet = useTypedSelector(state => state.cards.isGet);
-    const idCurrenCard = useTypedSelector(state => state.cards.currentCard._id);
-    useEffect(() => {
-        if (isGet) {
-            const card = getCard(cards);
-            dispatch(setCurrentCard(card));
-        }
-
-    }, [cards])
-
     const [question, setQuestion] = useState<string | undefined>(questionText)
     const [answer, setAnswer] = useState<string | undefined>(answerText)
     const [nameNewPack, setNameNewPack] = useState<string | undefined>(nameOfCell)
@@ -167,9 +151,9 @@ export default function ModalMi({
                                     onClick={addOnClickHandler}>{'save'}</Button>}
 
                             {type === 'learn' &&
-                            <NavLink className={s.link_toLearn} to={`/card/${id}/${nameOfCell}/${idCurrenCard}`}
-                            > Start learn </NavLink>
-
+                            <Button size={'small'} color={'primary'} variant={'contained'}
+                                    ><NavLink  className={s.link_toLearn}  to={`/card/${id}/${nameOfCell}`}
+                            > Start learn </NavLink></Button>
                             }
                         </Grid>
 
@@ -181,4 +165,3 @@ export default function ModalMi({
         </div>
     );
 }
-

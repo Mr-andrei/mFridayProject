@@ -1,20 +1,53 @@
-.all{
-    display: flex;
-    justify-content: space-evenly;
-    background-color: lightgrey;
-    border: 1px solid;
+.root{
+    width: 1500px;
+    height: 130px;
+    background-color: #3f51b5;
     border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.title{
+    font-size: 20px;
 }
 
+.links_block{
+    min-width: 350px;
+    max-width: 500px;
+    margin: 0 25px;
+    display: flex;
+    justify-content: space-around;
+}
 .links {
-    color: black;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
+    color: white;
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+
 }
 
 .activeClass {
-    color: aqua;
+    text-decoration: none;
+    color: white;
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    border-bottom: 5px solid white;
+
 }

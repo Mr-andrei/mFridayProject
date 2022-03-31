@@ -18,8 +18,7 @@ import Button from '@mui/material/Button';
 import {Search} from '../../packs/rightPanel/Search';
 import {
     getCardsTC,
-    setCardsCurrentPage,
-    setCardsQuestion,
+    setCardsCurrentPage, setCardsQuestion,
     setCardsSortValue, setIdCardsAC
 } from '../../../../n1-main/m2-bll/reducers/cardReducer';
 import {useDispatch} from 'react-redux';
@@ -176,7 +175,8 @@ export const TableCards = () => {
                                                 <TableCell key={column.id} align={column.align}>
                                                     {column.id === 'grade'
                                                         ?
-                                                        <Rating name="read-only" value={row.grade} readOnly precision={0.5}/>
+                                                        <Rating name="read-only" value={row.grade} readOnly
+                                                                precision={0.5}/>
                                                         : column.id === 'actions'
                                                             ?
                                                             <BasicButtonGroup name_2={'Del'}

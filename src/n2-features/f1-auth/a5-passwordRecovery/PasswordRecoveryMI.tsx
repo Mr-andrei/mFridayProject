@@ -50,10 +50,6 @@ export const PasswordRecoveryMI = () => {
                     width: 350,
                     height: '90%',
                     backgroundColor: 'whitesmoke',
-                    '&:hover': {
-                        backgroundColor: 'white',
-                        opacity: [0.9, 0.8, 0.7],
-                    },
                 }}
             >
                 <Grid container justifyContent={'center'} alignContent={'center'}>
@@ -64,9 +60,10 @@ export const PasswordRecoveryMI = () => {
                                 <h2 style={{marginBottom: '30%'}}>Forgot you password?</h2>
                             </FormLabel>
 
-                            <FormControl>
+                            <FormControl style={{height: "70px"}} >
                                 <InputLabel htmlFor="password">Email</InputLabel>
                                 <Input
+                                    style={{width: "270px"}}
                                     id={'email'}
                                     type={'text'}
                                     {...formik.getFieldProps('email')}
@@ -74,25 +71,26 @@ export const PasswordRecoveryMI = () => {
                                 {formik.touched.email && formik.errors.email
                                     ? <div style={redStyle}>{formik.errors.email}</div>
                                     : null}
-                                <FormLabel>
-                                    <p style={{fontSize: '0.8rem', margin: '20% 0 '}}>
-                                        Enter your email address
-                                        and
-                                        we will send you further instructions
-                                    </p>
-                                </FormLabel>
-                                    <Button
-                                        style={{marginLeft:'30px'}}
-                                        sx={{
-                                            height: 25,
-                                            width: 200,
-                                            borderRadius: 10,
-                                            fontSize: '0.5rem',
-                                        }}
-                                        type={'submit'} variant={'contained'} color={'primary'}>
-                                        Send instructions
-                                    </Button>
+
                             </FormControl>
+                            <FormLabel>
+                                <p style={{ textAlign:"center", fontSize: '0.9rem', margin: '20% 0 '}}>
+                                    Enter your email address
+                                    and
+                                    we will send you further instructions
+                                </p>
+                            </FormLabel>
+                            <Button
+                                style={{marginLeft: '30px'}}
+                                sx={{
+                                    height: 25,
+                                    width: 200,
+                                    borderRadius: 10,
+                                    fontSize: '0.8rem',
+                                }}
+                                type={'submit'} variant={'contained'} color={'primary'}>
+                                Send instructions
+                            </Button>
 
                         </form>
                     </Grid>

@@ -51,6 +51,7 @@ export const CreatingNewPassword = () => {
         <div style={wrapper}>
             <Box
                 sx={{
+                    textAlign:"center",
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -61,10 +62,6 @@ export const CreatingNewPassword = () => {
                     width: 350,
                     height: '90%',
                     backgroundColor: 'whitesmoke',
-                    '&:hover': {
-                        backgroundColor: 'white',
-                        opacity: [0.9, 0.8, 0.7],
-                    },
                 }}
             >
                 <Grid container justifyContent={'center'}>
@@ -75,7 +72,7 @@ export const CreatingNewPassword = () => {
                                 <h2 style={{marginBottom: '30%'}}>Create New Password</h2>
                             </FormLabel>
 
-                            <FormControl>
+                            <FormControl style={{height: "70px"}}>
                                 <InputLabel htmlFor="password">Password</InputLabel>
                                 <Input
                                     id="password"
@@ -96,22 +93,21 @@ export const CreatingNewPassword = () => {
                                 />
                                 {formik.touched.password && formik.errors.password &&
                                 <div style={redStyle}>{formik.errors.password}</div>}
-                                <FormLabel><p style={{fontSize: '0.8rem', marginTop: '20%'}}>Create new password and we
-                                    will
-                                    send you further instructions to email</p></FormLabel>
-                                <Button
-                                    sx={{
-                                        marginTop: '30%',
-                                        marginLeft: '10%',
-                                        height: 25,
-                                        width: 200,
-                                        borderRadius: 10,
-                                        fontSize: '0.5rem',
-                                    }}
-                                    type={'submit'} variant={'contained'} color={'primary'}>
-                                    Create New Password
-                                </Button>
+
                             </FormControl>
+                            <FormLabel><p style={{ textAlign:"center", fontSize: '0.9rem', marginTop: '20%',marginBottom: '20%'}}>Create new password and we
+                                will
+                                send you further instructions to email</p></FormLabel>
+                            <Button
+                                sx={{
+
+                                    padding: "10px , 5px",
+                                    borderRadius: 10,
+                                    fontSize: '0.5rem',
+                                }}
+                                type={'submit'} variant={'contained'} color={'primary'}>
+                                Create New Password
+                            </Button>
 
                         </form>
                     </Grid>

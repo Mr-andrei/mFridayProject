@@ -11,8 +11,6 @@ import {ProfileMI} from '../../../n2-features/f1-auth/a3-profile/ProfileMI';
 import {PacksCards} from '../../../n2-features/f2-pacsAndCards/packs/PacksCards';
 import {Cards} from '../../../n2-features/f2-pacsAndCards/cards/Cards';
 import {Card} from '../../../n2-features/f2-pacsAndCards/cards/card/Card';
-import {TestPageGetFile} from "../TestGetFile/TestPageGetFile";
-
 
 export const PATH = {
     LOGIN: '/login',
@@ -24,9 +22,7 @@ export const PATH = {
     CHECK_EMAIL: '/checkEmail',
     PACKS_CARDS: '/packsCards',
     CARDS_MI: '/cards/:cardId/:packNameURL',
-    CARD: '/card/:packIdURL/:packNameURL/:cardIdURL',
-    TEST_PAGE: '/TestPage',
-
+    CARD: '/card/:packIdURL/:packNameURL/',
 }
 
 export const RoutesComponent = () => {
@@ -46,7 +42,6 @@ export const RoutesComponent = () => {
                 <Route path={PATH.PACKS_CARDS} element={<PacksCards/>}/>
                 <Route path={PATH.CARDS_MI} element={<Cards/>}/>
                 <Route path={PATH.CARD} element={<Card/>}/>
-                <Route path={PATH.TEST_PAGE} element={<TestPageGetFile/>}/>
                 <Route path="*" element={<Navigate to={PATH.PAGE_NOT_FOUND}/>}/>
             </Routes>
         </Container>

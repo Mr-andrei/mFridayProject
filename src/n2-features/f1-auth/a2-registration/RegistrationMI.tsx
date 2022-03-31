@@ -13,7 +13,7 @@ import {Box, IconButton, Input, InputAdornment, InputLabel} from '@mui/material'
 import {Visibility, VisibilityOff} from '@mui/icons-material';
 import {redStyle, wrapper} from '../../../n1-main/m1-ui/utilities/for css';
 import {BlankDiv} from '../../../n1-main/m1-ui/common/ComponentsForTabels/BlankDiv';
-import {setRegistered, setRegisteredT} from '../../../n1-main/m2-bll/reducers/authReducer';
+import {setRegisteredT} from '../../../n1-main/m2-bll/reducers/authReducer';
 
 type State = {
     password: string;
@@ -22,7 +22,6 @@ type State = {
 }
 export const RegistrationMI = () => {
     const dispatch = useDispatch();
-    const isRegistered = useTypedSelector(state => state.auth.isRegistered);
     const [values, setValues] = useState<State>({
         password: '',
         showPassword: false,
@@ -76,10 +75,7 @@ export const RegistrationMI = () => {
                     width: 350,
                     height: '90%',
                     backgroundColor: 'whitesmoke',
-                    '&:hover': {
-                        backgroundColor: 'white',
-                        opacity: [0.9, 0.8, 0.7],
-                    },
+
                 }}
             >
                 <Grid container justifyContent={'center'}>
@@ -90,9 +86,10 @@ export const RegistrationMI = () => {
                                 <h2 style={{marginBottom: '30%', textAlign: 'center'}}>Sign Up</h2>
                             </FormLabel>
 
-                            <FormControl>
+                            <FormControl style={{height: "70px"}}>
                                 <InputLabel htmlFor="email">Email</InputLabel>
                                 <Input
+                                    style={{width: "250px"}}
                                     id={'email'}
                                     type={'text'}
                                     {...formik.getFieldProps('email')}
@@ -104,9 +101,10 @@ export const RegistrationMI = () => {
 
                             <BlankDiv/>
 
-                            <FormControl>
+                            <FormControl style={{height: "70px"}}>
                                 <InputLabel htmlFor="password">Password</InputLabel>
                                 <Input
+                                    style={{width: "250px"}}
                                     id="password"
                                     type={values.showPassword ? 'text' : 'password'}
                                     {...formik.getFieldProps('password')}
@@ -129,9 +127,10 @@ export const RegistrationMI = () => {
 
                             <BlankDiv/>
 
-                            <FormControl>
+                            <FormControl style={{height: "70px"}}>
                                 <InputLabel htmlFor="confirm_password">Confirm Password</InputLabel>
                                 <Input
+                                    style={{width: "250px"}}
                                     id="confirm_password"
                                     type={values.showPassword ? 'text' : 'password'}
                                     name={'confirmPassword'}

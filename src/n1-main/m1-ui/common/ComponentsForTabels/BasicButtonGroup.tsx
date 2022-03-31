@@ -3,7 +3,7 @@ import {useState} from 'react';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import {useDispatch} from 'react-redux';
-import {getCardsForLearn, setIsGet} from '../../../m2-bll/reducers/cardReducer';
+import {getCardsForLearn} from '../../../m2-bll/reducers/cardReducer';
 import ModalMi from '../../modal/ModalMI';
 
 type PropsType = {
@@ -38,7 +38,6 @@ export default function BasicButtonGroup(
         setTypeModel('delete');
     };
     const onClick3 = async () => {
-        dispatch(setIsGet(true));
         await dispatch(getCardsForLearn(idPack, nameOfCell));
         setTitle(`Learn`);
         setTypeModel('learn');

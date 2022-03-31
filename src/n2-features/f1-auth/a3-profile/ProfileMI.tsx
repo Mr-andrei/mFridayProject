@@ -52,10 +52,6 @@ export const ProfileMI = () => {
                     width: 350,
                     height: '90%',
                     backgroundColor: 'whitesmoke',
-                    '&:hover': {
-                        backgroundColor: 'white',
-                        opacity: [0.9, 0.8, 0.7],
-                    },
                 }}
             >
                 <Grid container justifyContent={'center'}>
@@ -103,7 +99,7 @@ export const ProfileMI = () => {
                             <div style={{fontSize: '0.7rem', textAlign: 'center', color: 'grey'}}>change name</div>
                         </div>
 
-                        <Button onClick={setAvatar} size={'small'}
+                        <Button disabled={!name && !photo} onClick={setAvatar} size={'small'}
                                 style={{fontSize: '0.7rem', marginTop: '10px'}}> CHANGE AVATAR OR NAME </Button>
                     </Grid>
                 </Grid>

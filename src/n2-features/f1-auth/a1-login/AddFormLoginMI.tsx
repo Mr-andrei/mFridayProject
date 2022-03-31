@@ -11,7 +11,7 @@ import {Navigate, NavLink} from 'react-router-dom';
 import {useTypedSelector} from '../../../n1-main/m2-bll/redux';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesComponent';
 import * as Yup from 'yup';
-import {setLoginT, setRegistered} from '../../../n1-main/m2-bll/reducers/authReducer';
+import {setLoginT} from '../../../n1-main/m2-bll/reducers/authReducer';
 import {Box, IconButton, Input, InputAdornment, InputLabel} from '@mui/material';
 import {Visibility, VisibilityOff} from '@mui/icons-material';
 import {redStyle} from '../../../n1-main/m1-ui/utilities/for css';
@@ -74,10 +74,7 @@ export const AddFormLoginMI = () => {
                 width: 350,
                 height: '90%',
                 backgroundColor: 'whitesmoke',
-                '&:hover': {
-                    backgroundColor: 'white',
-                    opacity: [0.9, 0.8, 0.7],
-                },
+
             }}
         >
             <Grid container justifyContent={'center'}>
@@ -87,9 +84,10 @@ export const AddFormLoginMI = () => {
                         <FormLabel sx={{marginBottom: 5}}>
                             <h2>Sign In</h2>
                         </FormLabel>
-                        <FormControl>
+                        <FormControl style={{height: "70px"}}>
                             <InputLabel htmlFor="email">Email</InputLabel>
                             <Input
+                                style={{width: "250px"}}
                                 id={'email'}
                                 type={'text'}
                                 {...formik.getFieldProps('email')}
@@ -99,9 +97,10 @@ export const AddFormLoginMI = () => {
                                 : null}
                         </FormControl>
                         <BlankDiv/>
-                        <FormControl>
+                        <FormControl style={{height: "70px"}}>
                             <InputLabel htmlFor="password">Password</InputLabel>
                             <Input
+                                style={{width: "250px"}}
                                 id="password"
                                 type={values.showPassword ? 'text' : 'password'}
                                 {...formik.getFieldProps('password')}
